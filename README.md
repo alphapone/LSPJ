@@ -13,3 +13,6 @@ LSPJ consists from two main parts:
  *macro processor purposed to extend SQL scripts with parameters, loading  from resource and including with parameters capabilites
  *JDBC driver proxy purposed to provide local stored SQL scripts using for any existing application
 
+## Status
+
+This project is in early development now
