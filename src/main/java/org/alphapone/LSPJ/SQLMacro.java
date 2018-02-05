@@ -264,6 +264,12 @@ public class SQLMacro {
 		   			break;
 		        }
 		        break;
+		    case INCLUDE:
+		    	switch(c) {
+		    	case ']':
+		    		position = TextPosition.TEXT;
+		        }
+		        break;
 		   }
 		   pc = c;
    	   }
