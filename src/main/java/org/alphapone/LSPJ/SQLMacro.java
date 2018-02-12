@@ -128,7 +128,6 @@ public class SQLMacro {
    	   	   	   	   	   curr = new StatementPart(StatementPartType.TEXT);
    	   	   	   	   }
    	   	   	   	   if (curr.type != StatementPartType.TEXT) {
-   	   	   	   	   	   curr.content.append(pc);
    	   	   	   	   	   parts.add(curr);
    	   	   	   	   	   curr = new StatementPart(StatementPartType.TEXT);
    	   	   	   	   }
@@ -139,7 +138,6 @@ public class SQLMacro {
    	   	   	   	   	   curr = new StatementPart(StatementPartType.VARIABLE);
    	   	   	   	   }
    	   	   	   	   if (curr.type != StatementPartType.VARIABLE) {
-   	   	   	   	   	   curr.content.append(pc);
    	   	   	   	   	   parts.add(curr);
    	   	   	   	   	   curr = new StatementPart(StatementPartType.VARIABLE);
    	   	   	   	   }
@@ -150,7 +148,6 @@ public class SQLMacro {
    	   	   	   	   	   curr = new StatementPart(StatementPartType.INCLUDE);
    	   	   	   	   }
    	   	   	   	   if (curr.type != StatementPartType.INCLUDE) {
-   	   	   	   	   	   curr.content.append(pc);
    	   	   	   	   	   parts.add(curr);
    	   	   	   	   	   curr = new StatementPart(StatementPartType.INCLUDE);
    	   	   	   	   }
