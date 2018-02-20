@@ -99,7 +99,8 @@ public class SQLMacro {
    	   IDENTIFIER,
    	   VARINSTART,   /* start of variable or include */
    	   VARIABLE,     /* $name */
-   	   INCLUDE       /* $[file arg1 agr2 arg2] */
+   	   INCLUDE,       /* $[file arg1 agr2 arg2] */
+   	   INCLUDEEND
    }
    
    /**
@@ -144,6 +145,7 @@ public class SQLMacro {
    	   	   	   	   curr.content.append(pc);
    	   	   	   	   break;
    	   	   	   case INCLUDE:
+   	   	   	   case INCLUDEEND:
    	   	   	   	   if (curr==null) {
    	   	   	   	   	   curr = new StatementPart(StatementPartType.INCLUDE);
    	   	   	   	   }
@@ -264,9 +266,12 @@ public class SQLMacro {
 		    case INCLUDE:
 		    	switch(c) {
 		    	case ']':
-		    		position = TextPosition.TEXT;
+		    		position = TextPosition.INCLUDEEND;
 		        }
 		        break;
+		    case INCLUDEEND:
+		    	position = TextPosition.TEXT;
+		    	break;
 		   }
 		   pc = c;
    	   }
