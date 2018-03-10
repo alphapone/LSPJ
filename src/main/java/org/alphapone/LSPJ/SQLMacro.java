@@ -108,6 +108,7 @@ public class SQLMacro {
     */
    public static StatementPart[] parse(String sql) {
    	   final char EOFC = (char)-1;
+   	   int brc=0; //brackets count for nested include calls
    	   ArrayList<StatementPart> parts = new ArrayList<>();
    	   TextPosition position = TextPosition.TEXT;
    	   
@@ -238,6 +239,7 @@ public class SQLMacro {
 		   		switch(c) {
 		   		case '[':
 		   			position = TextPosition.INCLUDE;
+		   			brc++;
 		   			break;
 		   		default:
 		   			position = TextPosition.VARIABLE;
@@ -265,8 +267,14 @@ public class SQLMacro {
 		        break;
 		    case INCLUDE:
 		    	switch(c) {
+		    	case '[':
+		    		brc++;
+		    		break;
 		    	case ']':
-		    		position = TextPosition.INCLUDEEND;
+		    		brc--;
+		    		if (brc==0) {
+		    			position = TextPosition.INCLUDEEND;
+		    		}
 		        }
 		        break;
 		    case INCLUDEEND:
