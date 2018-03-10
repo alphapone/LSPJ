@@ -15,4 +15,8 @@ LSPJ consists from two main parts:
 
 ## Status
 
-This project is in early development now
+This project is in early development now:
+
+ * sql macro parser is written (comments and sql text constants are supported) 
+ * sql macro executor and api is in todo list
+ * JDBC driver proxy (for debugging SQL Macro directly from Netbeans and SQL Developer) is in todo list (will be done after sql macro executor) 
