@@ -23,10 +23,6 @@ public class SQLMacro {
        */
       StringBuilder content;
       /**
-       * name: actual for variables and includes only
-       */
-      String name;
-      /**
        * arguments of include: actual for includes only
        */
       String[] arguments;
@@ -68,15 +64,7 @@ public class SQLMacro {
       	  sb.append("{\"content\":");
       	  sb.append('"');
       	  sb.append(content);
-      	  sb.append("\",\"name\":");
-      	  if (name!=null) {
-      	  	  sb.append('"');
-      	  	  sb.append(name);
-      	  	  sb.append('"');
-      	  } else {
-      	  	  sb.append("null");
-      	  }
-      	  sb.append(",\"type\":\"");
+      	  sb.append("\",\"type\":\"");
       	  sb.append(type);
       	  sb.append('"');
       	  sb.append("}");
